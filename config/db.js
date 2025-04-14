@@ -1,36 +1,30 @@
 import mongoose from "mongoose";
 
-let cached = global.mongoose;
-
-if (!cached) {
-    cached = global.mongoose = { conn: null, promise: null };
-}
+let cached = global.mongoose || { conn: null, promise: null };
 
 async function connectDB() {
-    if (cached.conn) return cached.conn;
+  if (cached.conn) return cached.conn;
 
-    if (!cached.promise) {
-        const opts = {
-            bufferCommands: false,
-            dbName: 'quickcart',
-        };
+  // VALIDATE URI
+  const uri = process.env.MONGODB_URI;
+  if (!uri) throw new Error("MONGODB_URI not defined in environment variables");
+  if (!uri.startsWith('mongodb')) {
+    throw new Error(`Invalid MongoDB URI: ${uri}`);
+  }
 
-        cached.promise = mongoose.connect(`${process.env.MONGODB_URI}`, opts)
-            .then(mongoose => mongoose)
-            .catch(err => {
-                console.error("MongoDB connection failed:", err);
-                throw err;
-            });
-    }
+  const opts = {
+    dbName: 'quickcart',
+    bufferCommands: false,
+  };
 
-    try {
-        cached.conn = await cached.promise;
-    } catch (err) {
-        cached.promise = null; // Reset để thử lại lần sau
-        throw err;
-    }
-
+  try {
+    cached.promise = mongoose.connect(uri, opts);
+    cached.conn = await cached.promise;
     return cached.conn;
+  } catch (err) {
+    cached.promise = null;
+    throw new Error(`MongoDB connection failed: ${err.message}`);
+  }
 }
 
 export default connectDB;
