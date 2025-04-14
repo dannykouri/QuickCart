@@ -13,8 +13,8 @@ export const syncUserCreation = inngest.createFunction(
     },
     {
         trigger:{
-            event: "clerk/user.deleted",
-        },     
+            event: "clerk/user.created"     
+        }
     },
     async ({ event, step }) => {
         const { id,first_name,last_name,email_addresses,image_url } = event.data;
