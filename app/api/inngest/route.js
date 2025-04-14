@@ -11,3 +11,7 @@ export const { GET, POST, PUT } = serve({
     syncUserDeletion
   ],
 });
+// File: pages/api/inngest/route.js
+export const config = {
+  api: { bodyParser: false },  // Quan trọng!
+};
