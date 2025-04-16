@@ -2,6 +2,8 @@ import mongoose from "mongoose";
 
 let cached = global.mongoose;
 
+require("dotenv").config();
+
 if(!cached){
   cached = global.mongoose = { conn: null, promise: null }; 
 }
@@ -23,5 +25,6 @@ async function connectDB () {
   cached.conn = await cached.promise;
   return cached.conn;
 }
+
 
 export default connectDB
