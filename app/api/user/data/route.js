@@ -8,12 +8,20 @@ export async function GET(request) {
     await connectDB();
     const { userId } = getAuth(request);
     const user = await User.findOne({ clerkId: userId });
-    console.log(user)
     if (!user) {
       return NextResponse.json({ success: false,message: "User not found" });
     }
     return NextResponse.json({ success: true, user })
   } catch (error) { 
-    return NextResponse.json({ success: false, message: error.message });
+    console.error("Error during user sync operation:");
+    console.error("Stack Trace:", error.stack);
+    console.error("Message:", error.message);
+    
+    return NextResponse.json({
+      success: false,
+      message: `Error: ${error.message}`,// Bao gồm event data để biết thêm ngữ cảnh
+      stack: error.stack,
+      timestamp: new Date().toISOString(),  // Thêm thời gian lỗi
+    });
   } 
 }
