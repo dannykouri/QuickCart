@@ -13,14 +13,10 @@ export async function POST(request) {
         
     }
     
-    const totals = await Promise.all(
-      items.map(async (item) => {
-        const product = await Product.findById(item.product);
-        return product.offerPrice * item.quantity;
-      })
-    );
-    
-    const amount = totals.reduce((a, b) => a + b, 0);
+    const amount = await items.reduce(async (acc, item) => {
+      const product = await Product.findById(item.product);
+      return acc + product.price * item.quantity;
+    },0);
     
 
     await inngest.send({
