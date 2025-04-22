@@ -23,7 +23,7 @@ export async function POST(request) {
     const amount = totals.reduce((a, b) => a + b, 0);
     
 
-    await inngest.send("createUserOrder", {
+    await inngest.send({
       name:'order/create',
       data: {
         userId,

@@ -3,6 +3,7 @@ import { useAppContext } from "@/context/AppContext";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { products } from "@/assets/productData";
 
 
 const OrderSummary = () => {
@@ -39,7 +40,35 @@ const OrderSummary = () => {
   };
 
   const createOrder = async () => {
+    try {
+      
+      if (!selectedAddress) {
+        return toast.error("Please select an address");
+      }
 
+      let cartItemsArray = Object.keys(cartItems).map((key) => ({ product: key, quantity: cartItems[key] }));
+      cartItemsArray = cartItemsArray.filter((item) => item.quantity > 0);
+
+      if (cartItemsArray.length === 0) {
+        
+        return toast.error("Your cart is empty. Please add items to your cart before proceeding.");
+      }
+
+      const token = await getToken();
+      const { data } = await axios.post('/api/order/create', {
+        address: selectedAddress,
+        items: cartItemsArray,
+      }, { headers: { Authorization: `Bearer ${token}` } });
+      if (data.success) {
+        toast.success(data.message);
+        setCartItems({});
+        router.push("/order-placed");
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      return toast.error('Cart is emtpy')
+    }
   }
 
   useEffect(() => {
