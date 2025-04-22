@@ -8,5 +8,6 @@ export const { GET, POST, PUT } = serve({
     syncUserDeletion,
     syncUserUpdation,
     syncUserCreation,
+    createUserOrder,
   ],
 });

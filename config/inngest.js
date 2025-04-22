@@ -1,6 +1,7 @@
 import { Inngest } from "inngest";
 import connectDB from "./db";
 import User from "@/models/Users";
+import { NextResponse } from "next/server";
 
 // Create a client to send and receive events
 export const inngest = new Inngest({ id: "nhatminh-next" });
@@ -54,5 +55,38 @@ export const syncUserDeletion = inngest.createFunction(
     const { id } = event.data;
     await connectDB();
     await User.findByIdAndDelete({clerk:id});
+  }
+);
+
+
+// ingest functions to create order and update product stock
+export const createUserOrder = inngest.createFunction(
+  { 
+    id: "createUserOrder", 
+    batchEvents:{
+      maxSize:25,
+      timeout:'5s'
+    }
+  },
+  {
+    event: "clerk/order.created",
+  },
+  async ({ event, step }) => {
+    const { userId, items, address } = event.data;
+    await connectDB();
+    // Create order logic here
+    const order = event.map((event) => {
+      return {
+        userId:event.data.userId,
+        items: event.data.items,
+        amount: event.data.amount,
+        address: event.data.address,
+        date: event.data.date,
+      }
+    });
+
+    await connectDB();
+    await order.insertMany(order);
+    return NextResponse.json({ success: true,processed:order.length });
   }
 );
