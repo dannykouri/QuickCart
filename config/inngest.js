@@ -69,11 +69,9 @@ export const createUserOrder = inngest.createFunction(
     }
   },
   {
-    event: "clerk/order.created",
+    event: "order/created",
   },
-  async ({ event, step }) => {
-    const { userId, items, address } = event.data;
-    await connectDB();
+  async ({ event}) => {    
     // Create order logic here
     const order = event.map((event) => {
       return {
@@ -87,6 +85,6 @@ export const createUserOrder = inngest.createFunction(
 
     await connectDB();
     await order.insertMany(order);
-    return NextResponse.json({ success: true,processed:order.length });
+    return ({ success: true,processed:order.length });
   }
 );

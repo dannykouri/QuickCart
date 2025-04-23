@@ -1,3 +1,4 @@
+
 import { NextResponse } from "next/server";
 import { getAuth } from "@clerk/nextjs/server";
 import Product from "@/models/Product";
@@ -15,7 +16,7 @@ export async function POST(request) {
     
     const amount = await items.reduce(async (acc, item) => {
       const product = await Product.findById(item.product);
-      return await acc + product.price * item.quantity;
+      return await acc + product.offerPrice * item.quantity;
     },0);
     
 
@@ -26,7 +27,7 @@ export async function POST(request) {
         items,
         address,
         amount:amount + Math.floor(amount * 0.02),
-        date: Date.now(),
+        date: Date.now()
       },
     });
 
