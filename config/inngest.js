@@ -1,7 +1,7 @@
 import { Inngest } from "inngest";
 import connectDB from "./db";
 import User from "@/models/Users";
-import { NextResponse } from "next/server";
+import Order from "@/models/Order";
 
 // Create a client to send and receive events
 export const inngest = new Inngest({ id: "nhatminh-next" });
@@ -84,7 +84,7 @@ export const createUserOrder = inngest.createFunction(
     });
 
     await connectDB();
-    await order.insertMany(order);
-    return ({ success: true,processed:order.length });
+    await Order.insertMany(orders);
+    return ({ success: true, processed: orders.length });
   }
 );
