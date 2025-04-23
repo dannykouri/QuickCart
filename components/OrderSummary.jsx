@@ -1,10 +1,8 @@
 
-import { addressDummyData } from "@/assets/assets";
 import { useAppContext } from "@/context/AppContext";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
-import { products } from "@/assets/productData";
 
 
 const OrderSummary = () => {
@@ -64,7 +62,7 @@ const OrderSummary = () => {
         toast.success(data.message);
         setCartItems({});
         router.push("/order-placed");
-      } else {
+      } else {  
         toast.error(data.message);
       }
     } catch (error) {

@@ -21,7 +21,7 @@ export async function POST(request) {
     
 
     await inngest.send({
-      name:'order/create',
+      name:'clerk/order.created',
       data: {
         userId,
         items,
