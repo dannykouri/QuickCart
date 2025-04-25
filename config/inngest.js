@@ -88,3 +88,14 @@ export const createUserOrder = inngest.createFunction(
     return ({ success: true, processed: orders.length });
   }
 );
+export const deletedUserOrder = inngest.createFunction(
+  { id: "deletedUserOrder" },
+  {
+    event: "clerk/order.deleted",
+  },
+  async ({ event }) => {
+    const { id } = event.data;
+    await connectDB();
+    await Order.findByIdAndDelete(id);
+  }
+);

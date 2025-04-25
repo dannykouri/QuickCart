@@ -5,6 +5,15 @@ import Link from "next/link"
 import { useAppContext } from "@/context/AppContext";
 import Image from "next/image";
 import { useClerk, UserButton } from "@clerk/nextjs";
+import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+  navigationMenuTriggerStyle
+} from "@/components/ui/navigation-menu";
 
 const Navbar = () => {
 
@@ -12,7 +21,7 @@ const Navbar = () => {
   const {openSignIn}= useClerk();
 
   return (
-    <nav className="flex items-center justify-between px-6 md:px-16 lg:px-32 py-3 border-b border-gray-300 text-gray-700">
+    <nav className="flex items-center justify-between px-6 md:px-16 lg:px-32 py-3 border-b border-gray-300 text-white position sticky top-0 z-50 bg-gradient-to-r from-cyan-500 to-fuchsia-700 ">
       <Image
         className="cursor-pointer w-28 md:w-32"
         onClick={() => router.push('/')}
@@ -21,17 +30,36 @@ const Navbar = () => {
       />
       <div className="flex items-center gap-4 lg:gap-8 max-md:hidden">
         <Link href="/" className="hover:text-gray-900 transition">
-          Home
+          Trang Chủ
         </Link>
         <Link href="/all-products" className="hover:text-gray-900 transition">
-          Shop
+          Tất Cả Sách
         </Link>
-        <Link href="/" className="hover:text-gray-900 transition">
-          About Us
-        </Link>
-        <Link href="/" className="hover:text-gray-900 transition">
-          Contact
-        </Link>
+        
+        <NavigationMenu className="bg-none text-gray-800 rounded-md shadow-lg">
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Danh Mục</NavigationMenuTrigger>
+              <NavigationMenuContent >
+                <Link href="/products/english-books">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>Sách Tiếng Anh</NavigationMenuLink>
+                </Link>
+                <Link href="/products/chinese-books">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>Sách Tiếng Trung</NavigationMenuLink>
+                </Link>
+                <Link href="/products/spanish-books">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>Sách Tiếng Tây Ban Nha</NavigationMenuLink>
+                </Link>
+                <Link href="/products/german-books">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>Sách Tiếng Đức</NavigationMenuLink>
+                </Link>
+                <Link href="/products/russian-books">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>Sách Tiếng Nga</NavigationMenuLink>
+                </Link>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
 
         {isSeller && <button onClick={() => router.push('/seller')} className="text-xs border px-4 py-1.5 rounded-full">Seller Dashboard</button>}
 
@@ -52,7 +80,7 @@ const Navbar = () => {
           </UserButton>
           </> : <button onClick={openSignIn} className="flex items-center gap-2 hover:text-gray-900 transition">
           <Image src={assets.user_icon} alt="user icon" />
-          Account
+          Đăng Nhập / Đăng Ký
         </button>}
       </ul>
 

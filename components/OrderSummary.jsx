@@ -79,13 +79,13 @@ const OrderSummary = () => {
   return (
     <div className="w-full md:w-96 bg-gray-500/5 p-5">
       <h2 className="text-xl md:text-2xl font-medium text-gray-700">
-        Order Summary
+        Tóm tắt đơn hàng
       </h2>
       <hr className="border-gray-500/30 my-5" />
       <div className="space-y-6">
         <div>
           <label className="text-base font-medium uppercase text-gray-600 block mb-2">
-            Select Address
+            Chọn Địa Chỉ
           </label>
           <div className="relative inline-block w-full text-sm border">
             <button
@@ -119,7 +119,7 @@ const OrderSummary = () => {
                   onClick={() => router.push("/add-address")}
                   className="px-4 py-2 hover:bg-gray-500/10 cursor-pointer text-center"
                 >
-                  + Add New Address
+                  + Thêm địa chỉ khác
                 </li>
               </ul>
             )}
@@ -128,7 +128,7 @@ const OrderSummary = () => {
 
         <div>
           <label className="text-base font-medium uppercase text-gray-600 block mb-2">
-            Promo Code
+            Mã Giảm Giá
           </label>
           <div className="flex flex-col items-start gap-3">
             <input
@@ -137,7 +137,7 @@ const OrderSummary = () => {
               className="flex-grow w-full outline-none p-2.5 text-gray-600 border"
             />
             <button className="bg-orange-600 text-white px-9 py-2 hover:bg-orange-700">
-              Apply
+              Áp dụng
             </button>
           </div>
         </div>
@@ -146,20 +146,20 @@ const OrderSummary = () => {
 
         <div className="space-y-4">
           <div className="flex justify-between text-base font-medium">
-            <p className="uppercase text-gray-600">Items {getCartCount()}</p>
-            <p className="text-gray-800">{currency}{getCartAmount()}</p>
+            <p className="uppercase text-gray-600">Sản Phẩm  {getCartCount()}</p>
+            <p className="text-gray-800">{getCartAmount()}{currency}</p>
           </div>
           <div className="flex justify-between">
-            <p className="text-gray-600">Shipping Fee</p>
+            <p className="text-gray-600">Tiền Giao Hàng</p>
             <p className="font-medium text-gray-800">Free</p>
           </div>
           <div className="flex justify-between">
-            <p className="text-gray-600">Tax (2%)</p>
-            <p className="font-medium text-gray-800">{currency}{Math.floor(getCartAmount() * 0.02)}</p>
+            <p className="text-gray-600">Thuế (2%)</p>
+            <p className="font-medium text-gray-800">{Math.floor(getCartAmount() * 0.02)}{currency}</p>
           </div>
           <div className="flex justify-between text-lg md:text-xl font-medium border-t pt-3">
-            <p>Total</p>
-            <p>{currency}{getCartAmount() + Math.floor(getCartAmount() * 0.02)}</p>
+            <p>Tổng Cộng</p>
+            <p>{getCartAmount() + Math.floor(getCartAmount() * 0.02)}{currency}</p>
           </div>
         </div>
       </div>

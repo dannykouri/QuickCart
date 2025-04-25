@@ -2,7 +2,6 @@ import connectDB from "@/config/db";
 import Product from "@/models/Product";
 import { getAuth } from "@clerk/nextjs/server";
 import { v2 as cloudinary } from "cloudinary";
-import { connect } from "mongoose";
 import { NextResponse } from "next/server";
 import authSeller from "@/lib/authSeller";
 
