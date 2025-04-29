@@ -62,6 +62,9 @@ const ProductList = () => {
         setLoadingDelete(false);
     }
 };
+const handleEdit = (id) => {
+    router.push(`/seller/product-list/edit-product?id=${id}`);
+  }
 
   return (
     <div className="flex-1 min-h-screen flex flex-col justify-between">
@@ -79,7 +82,7 @@ const ProductList = () => {
                   <th className="px-4 py-3 font-medium truncate">Price</th>
                   <th className="px-4 py-3 font-medium truncate max-sm:hidden">Liên kết</th>
                   <th className="px-4 py-3 font-medium truncate max-sm:hidden">Thao tác</th>
-                  <th className="px-4 py-3 font-medium truncate max-sm:hidden">Xóa</th>
+                  <th className="px-4 py-3 font-medium truncate max-sm:hidden">Xóa Sản Phẩm</th>
                 </tr>
               </thead>
               <tbody className="text-sm text-gray-500">
@@ -104,16 +107,16 @@ const ProductList = () => {
                         onClick={() => router.push(`/product/${product._id}`)}
                         className="flex items-center gap-1 px-1.5 md:px-3.5 py-2 bg-orange-600 text-white rounded-md"
                       >
-                        <span className="hidden md:block">Visit</span>
+                        <span className="hidden md:block">Xem</span>
                         <Image className="h-3.5" src={assets.redirect_icon} alt="redirect_icon" />
                       </button>
                     </td>
                     <td>
                       <button
-                      
-                      className="flex items-center gap-1 px-1.5 md:px-3.5 py-2 bg-orange-600 text-white rounded-md"
+                        onClick={() => handleEdit(product._id)}
+                        className="flex items-center gap-1 px-1.5 md:px-3.5 py-2 bg-orange-600 text-white rounded-md"
                       >
-                        
+                        Chỉnh Sửa
                       </button>
                     </td>
                     <td>
@@ -122,7 +125,7 @@ const ProductList = () => {
                         onClick={() => handleDelete(product._id)}
                         className="flex items-center gap-1 px-1.5 md:px-3.5 py-2 bg-orange-600 text-white rounded-md"
                       >
-                        {loadingDelete ? "Đang xóa..." : "Xóa Sản Phẩm"}
+                        {loadingDelete ? "Đang xóa..." : "Xóa"}
                       </button>
                     </td>
                   </tr>

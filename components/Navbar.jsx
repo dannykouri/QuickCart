@@ -36,24 +36,24 @@ const Navbar = () => {
           Tất Cả Sách
         </Link>
         
-        <NavigationMenu className="bg-none text-gray-800 rounded-md shadow-lg">
+        <NavigationMenu className="bg-black text-gray-800 rounded-md shadow-lg">
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuTrigger>Danh Mục</NavigationMenuTrigger>
               <NavigationMenuContent >
-                <Link href="/products/english-books">
+                <Link href="/all-products/english-books">
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>Sách Tiếng Anh</NavigationMenuLink>
                 </Link>
-                <Link href="/products/chinese-books">
+                <Link href="/all-products/chinese-books">
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>Sách Tiếng Trung</NavigationMenuLink>
                 </Link>
-                <Link href="/products/spanish-books">
+                <Link href="/all-products/spanish-books">
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>Sách Tiếng Tây Ban Nha</NavigationMenuLink>
                 </Link>
-                <Link href="/products/german-books">
+                <Link href="/all-products/german-books">
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>Sách Tiếng Đức</NavigationMenuLink>
                 </Link>
-                <Link href="/products/russian-books">
+                <Link href="/all-products/russian-books">
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>Sách Tiếng Nga</NavigationMenuLink>
                 </Link>
               </NavigationMenuContent>
@@ -85,25 +85,25 @@ const Navbar = () => {
       </ul>
 
       <div className="flex items-center md:hidden gap-3">
-        {isSeller && <button onClick={() => router.push('/seller')} className="text-xs border px-4 py-1.5 rounded-full">Seller Dashboard</button>}
-          { user 
-            ? 
-            <>
-            <UserButton>
-              <UserButton.MenuItems>
-                <UserButton.Action label="Home" labelIcon={<HomeIcon/>} onClick={()=> router.push('/')} />
-              </UserButton.MenuItems>
-              <UserButton.MenuItems>
-                <UserButton.Action label="Products" labelIcon={<BoxIcon/>} onClick={()=> router.push('/all-products')} />
-              </UserButton.MenuItems>
-              <UserButton.MenuItems>
-                <UserButton.Action label="Cart" labelIcon={<CartIcon />} onClick={()=> router.push('/cart')} />
-              </UserButton.MenuItems>
-              <UserButton.MenuItems>
-                <UserButton.Action label="My Orders" labelIcon={<BagIcon />} onClick={()=> router.push('/my-orders')} />
-              </UserButton.MenuItems>
-            </UserButton>
-            </> : <button onClick={openSignIn} className="flex items-center gap-2 hover:text-gray-900 transition">
+        { user 
+          ? 
+          <>
+          <UserButton>
+            <UserButton.MenuItems>
+              <UserButton.Action label="Home" labelIcon={<HomeIcon/>} onClick={()=> router.push('/')} />
+            </UserButton.MenuItems>
+            <UserButton.MenuItems>
+              <UserButton.Action label="Products" labelIcon={<BoxIcon/>} onClick={()=> router.push('/all-products')} />
+            </UserButton.MenuItems>
+            <UserButton.MenuItems>
+              <UserButton.Action label="Cart" labelIcon={<CartIcon />} onClick={()=> router.push('/cart')} />
+            </UserButton.MenuItems>
+            <UserButton.MenuItems>
+              <UserButton.Action label="My Orders" labelIcon={<BagIcon />} onClick={()=> router.push('/my-orders')} />
+            </UserButton.MenuItems>
+          </UserButton>
+          </> : 
+          <button onClick={openSignIn} className="flex items-center gap-2 hover:text-gray-900 transition">
             <Image src={assets.user_icon} alt="user icon" />
             Account
           </button>}
