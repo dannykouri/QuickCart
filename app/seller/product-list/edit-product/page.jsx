@@ -168,7 +168,7 @@ const UpdateProduct = () => {
             />
           </div>
         </div>
-        <button disabled={loading} onClick={()=>handleSubmit()} type="submit" className="px-8 py-2.5 bg-orange-600 text-white font-medium rounded">
+        <button disabled={loading} onClick={()=>handleSubmit()} type="submit" className="px-8 py-2.5 bg-cyan-600 text-white font-medium rounded">
           {loading ? 'Đang Chỉnh Sửa...' : 'Chỉnh Sửa Sản Phẩm'}
         </button>
       </form>

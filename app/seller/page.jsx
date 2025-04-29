@@ -166,7 +166,7 @@ const AddProduct = () => {
             />
           </div>
         </div>
-        <button disabled={loading} type="submit" className="px-8 py-2.5 bg-orange-600 text-white font-medium rounded">
+        <button disabled={loading} type="submit" className="px-8 py-2.5 bg-cyan-600 text-white font-medium rounded">
           {loading ? 'Đang Thêm...' : 'Thêm Sản Phẩm'}
         </button>
       </form>

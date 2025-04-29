@@ -48,7 +48,7 @@ const Orders = () => {
                 <div className="max-w-4xl rounded-md">
                     {orders.map((order, index) => (
                         <div key={index} className="flex flex-col md:flex-row gap-5 justify-between p-5 border-t border-gray-300">
-                            <div className="flex-1 flex gap-5 max-w-80">
+                            <div className="flex-1 flex gap-2 max-w-80">
                                 <Image
                                     className="max-w-16 max-h-16 object-cover"
                                     src={assets.box_icon}
@@ -79,6 +79,10 @@ const Orders = () => {
                                     <span>Ngày : {new Date(order.date).toLocaleDateString()}</span>
                                     <span>Trạng Thái Đơn Hàng: Chưa Giải Quyết</span>
                                 </p>
+                            </div>
+                            <div className="flex flex-col items-center gap-2">
+                                <button className="bg-cyan-600 text-white py-2 px-5 rounded-md">Tiếp Nhận Đơn Hàng</button>
+                                <button className="bg-cyan-600 text-white py-2 px-5 rounded-md">Hủy Đơn Hàng</button>
                             </div>
                         </div>
                     ))}

@@ -125,14 +125,17 @@ export const AppContextProvider = (props) => {
 
     const getCartAmount = () => {
         let totalAmount = 0;
-        for (const items in cartItems) {
-            let itemInfo = products.find((product) => product._id === items);
-            if (cartItems[items] > 0) {
-                totalAmount += itemInfo.offerPrice * cartItems[items];
-            }
+        for (const itemId in cartItems) {
+          const quantity = cartItems[itemId];
+          if (quantity > 0) {
+            const product = products.find(p => p._id === itemId);
+            // Kiểm tra tồn tại product và offerPrice
+            const price = product?.offerPrice ?? 0;
+            totalAmount += price * quantity;
+          }
         }
         return Math.floor(totalAmount * 100) / 100;
-    }
+      };
 
     useEffect(() => {
         fetchProductData()

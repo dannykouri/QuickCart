@@ -15,7 +15,7 @@ const NewsLetter = () => {
           type="text"
           placeholder="Nhập Email Của Bạn"
         />
-        <button className="md:px-12 px-8 h-full text-white bg-orange-600 rounded-md rounded-l-none">
+        <button className="md:px-12 px-8 h-full text-white bg-cyan-600 rounded-md rounded-l-none">
           Đăng Ký
         </button>
       </div>
