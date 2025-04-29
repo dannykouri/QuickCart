@@ -8,8 +8,15 @@ import toast from "react-hot-toast";
 import axios from "axios";
 
 const UpdateProduct = () => {
+  const [productId, setProductId] = useState(null);
   const searchParams = useSearchParams();
-  const productId = searchParams.get("id");
+
+  useEffect(() => {
+    // Chỉ chạy khi client-side
+    const id = searchParams.get("id");
+    setProductId(id);
+  }, [searchParams]);
+
   const { getToken } = useAppContext();
 
   const [files, setFiles] = useState([]);
