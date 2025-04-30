@@ -7,14 +7,11 @@ import { useAppContext } from "@/context/AppContext";
 import toast from "react-hot-toast";
 import axios from "axios";
 
-  const [productId, setProductId] = useState();
+const getProductId = () => {
   const searchParams = useSearchParams();
-
-  useEffect(() => {
-    // Chỉ chạy khi client-side
-    const id = searchParams.get("id");
-    setProductId(id);
-  }, [searchParams]);
+  const productId = searchParams.get("productId");
+  return productId;
+}
 
 const UpdateProduct = () => {
   const { getToken } = useAppContext();
@@ -30,7 +27,7 @@ const UpdateProduct = () => {
   // 👇 KHÔNG đặt hàm bên trong return!
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!productId) return toast.error("Thiếu ID sản phẩm!");
+    if (!getProductId()) return toast.error("Thiếu ID sản phẩm!");
 
     setLoading(true);
     const formData = new FormData();
