@@ -64,7 +64,7 @@ const ProductList = () => {
     }
 };
 const handleEdit = (id) => {
-    router.push(`/seller/product-list/edit-product?id=${id}`);
+    router.push(`/seller/product-list/edit-product/${id}/`);
   }
 
   return (

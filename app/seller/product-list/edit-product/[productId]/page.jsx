@@ -1,30 +1,15 @@
 'use client';
 import React, { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
 import { assets } from "@/assets/assets";
 import Image from "next/image";
 import { useAppContext } from "@/context/AppContext";
 import toast from "react-hot-toast";
 import axios from "axios";
-import { Suspense } from "react";
-
-function Search() {
-  const searchParams = useSearchParams()
- 
-  return <input placeholder="Search..." />
-}
- 
-export function Searchbar() {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <Search />
-    </Suspense>
-  )
-}
+import { useParams } from 'next/navigation'
 
 const UpdateProduct = () => {
-  const searchParams = useSearchParams();
-  const productId = searchParams.get("id");
+  const params = useParams();
+  const productId = params.productId;
   const { getToken } = useAppContext();
 
   const [files, setFiles] = useState([]);
