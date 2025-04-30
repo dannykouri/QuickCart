@@ -7,7 +7,7 @@ import { useAppContext } from "@/context/AppContext";
 import toast from "react-hot-toast";
 import axios from "axios";
 
-  const [productId, setProductId] = useState(null);
+  const [productId, setProductId] = useState();
   const searchParams = useSearchParams();
 
   useEffect(() => {
