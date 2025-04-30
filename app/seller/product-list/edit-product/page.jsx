@@ -7,13 +7,9 @@ import { useAppContext } from "@/context/AppContext";
 import toast from "react-hot-toast";
 import axios from "axios";
 
-const getProductId = () => {
+const UpdateProduct = () => {
   const searchParams = useSearchParams();
   const productId = searchParams.get("productId");
-  return productId;
-}
-
-const UpdateProduct = () => {
   const { getToken } = useAppContext();
 
   const [files, setFiles] = useState([]);
