@@ -6,6 +6,21 @@ import Image from "next/image";
 import { useAppContext } from "@/context/AppContext";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { Suspense } from "react";
+
+function Search() {
+  const searchParams = useSearchParams()
+ 
+  return <input placeholder="Search..." />
+}
+ 
+export function Searchbar() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Search />
+    </Suspense>
+  )
+}
 
 const UpdateProduct = () => {
   const searchParams = useSearchParams();
