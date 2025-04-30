@@ -9,7 +9,7 @@ import axios from "axios";
 
 const UpdateProduct = () => {
   const searchParams = useSearchParams();
-  const productId = searchParams.get("productId");
+  const productId = searchParams.get("id");
   const { getToken } = useAppContext();
 
   const [files, setFiles] = useState([]);
@@ -23,7 +23,7 @@ const UpdateProduct = () => {
   // 👇 KHÔNG đặt hàm bên trong return!
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!getProductId()) return toast.error("Thiếu ID sản phẩm!");
+    if (!productId) return toast.error("Thiếu ID sản phẩm!");
 
     setLoading(true);
     const formData = new FormData();
