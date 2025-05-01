@@ -60,7 +60,7 @@ const Orders = () => {
                                     <span className="font-medium">
                                         {order.items.map((item) => item.product.name + ` x ${item.quantity}`).join(", ")}
                                     </span>
-                                    <span>Sản Phẩm : {order.items.length}</span>
+                                    <span>Số Lượng : {order.items.length}</span>
                                 </p>
                             </div>
                             <div>

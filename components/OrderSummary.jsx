@@ -3,6 +3,9 @@ import { useAppContext } from "@/context/AppContext";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { Label } from "@/components/ui/label"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+
 
 
 const OrderSummary = () => {
@@ -125,7 +128,25 @@ const OrderSummary = () => {
             )}
           </div>
         </div>
-
+        <div>
+          <label className="text-base font-medium uppercase text-gray-600 block mb-2">
+            Phương Thức Thanh Toán
+          </label>
+          <RadioGroup defaultValue="payments method" className="space-y-2">
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="COD" id="r1" />
+                <Label htmlFor="r1">Trả Khi Nhận Hàng</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="Transfer" id="r2"/>
+                <Label htmlFor="r2">Trả Chuyển Khoản</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="MasterCard" id="r3" />
+                <Label htmlFor="r3">Trả Bằng thẻ</Label>
+              </div>
+          </RadioGroup>
+        </div>
         <div>
           <label className="text-base font-medium uppercase text-gray-600 block mb-2">
             Mã Giảm Giá
@@ -151,7 +172,7 @@ const OrderSummary = () => {
           </div>
           <div className="flex justify-between">
             <p className="text-gray-600">Tiền Giao Hàng</p>
-            <p className="font-medium text-gray-800">Free</p>
+            <p className="font-medium text-gray-800">Free</p> 
           </div>
           <div className="flex justify-between">
             <p className="text-gray-600">Thuế (2%)</p>

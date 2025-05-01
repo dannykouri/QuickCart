@@ -74,13 +74,13 @@ const handleEdit = (id) => {
       ) : (
         <div className="w-full md:p-10 p-4">
           <h2 className="pb-4 text-lg font-medium">Tất cả Sách</h2>
-          <div className="flex flex-col items-center max-w-4xl w-full overflow-hidden rounded-md bg-white border border-gray-500/20">
+          <div className="flex flex-col items-center w-full overflow-hidden rounded-md bg-white border border-gray-500/20">
             <table className="table-fixed w-full overflow-hidden">
               <thead className="text-gray-900 text-sm text-left">
                 <tr>
                   <th className="w-2/3 md:w-2/5 px-4 py-3 font-medium truncate">Sách</th>
                   <th className="px-4 py-3 font-medium truncate max-sm:hidden">Loại</th>
-                  <th className="px-4 py-3 font-medium truncate">Price</th>
+                  <th className="px-4 py-3 font-medium truncate">Giá</th>
                   <th className="px-4 py-3 font-medium truncate max-sm:hidden">Liên kết</th>
                   <th className="px-4 py-3 font-medium truncate max-sm:hidden">Thao tác</th>
                   <th className="px-4 py-3 font-medium truncate max-sm:hidden">Xóa Sản Phẩm</th>
@@ -102,7 +102,7 @@ const handleEdit = (id) => {
                       <span className="truncate w-full">{product.name}</span>
                     </td>
                     <td className="px-4 py-3 max-sm:hidden">{product.category}</td>
-                    <td className="px-4 py-3">${product.offerPrice}</td>
+                    <td className="px-4 py-3">{product.offerPrice}đ</td>
                     <td className="px-4 py-3 max-sm:hidden">
                       <button
                         onClick={() => router.push(`/product/${product._id}`)}

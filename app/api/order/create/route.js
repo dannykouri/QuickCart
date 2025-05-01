@@ -36,7 +36,7 @@ export async function POST(request) {
     user.cartItems = {};
     await user.save();
 
-    return NextResponse.json({ success: true, message: "Order Placed" });
+    return NextResponse.json({ success: true, message: "Đơn Hàng Đã Đặt Thành Công" });
 
   } catch (error) {
     console.log(error);

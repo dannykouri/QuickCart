@@ -3,7 +3,7 @@ import Product from '@/models/Product';
 import { NextResponse } from "next/server";
 
 export async function DELETE(request, { params }) {
-    const { id } = params;
+    const { id}  = params;
     
     try {
         await connectDB();

@@ -33,9 +33,10 @@ export async function POST(request) {
         const category = formData.get('category');
         
         const files= formData.getAll('images');
+        
 
         if(files.length===0||!files){ 
-            return NextResponse.json({ success: false, message: "no files uploaded yet" });
+            return NextResponse.json({ success: false, message: "Chưa có ảnh" });
         }
 
         const results = await Promise.all
@@ -72,6 +73,7 @@ export async function POST(request) {
             category,
             date: Date.now(),
         })
+        console.log(quantity);
 
         return NextResponse.json({ success: true, message: "Product added successfully", newProduct });
 
