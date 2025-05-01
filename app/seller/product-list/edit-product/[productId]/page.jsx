@@ -10,7 +10,7 @@ import { useParams } from 'next/navigation'
 const UpdateProduct = () => {
   const params = useParams();
   const productId = params.productId;
-  const { getToken } = useAppContext();
+  const { getToken,router } = useAppContext();
 
   const [files, setFiles] = useState([]);
   const [name, setName] = useState('');
@@ -61,6 +61,7 @@ const UpdateProduct = () => {
     }
 
     setLoading(false);
+    router.push('/seller/product-list');
   };
 
   return (

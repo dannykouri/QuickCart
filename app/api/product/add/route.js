@@ -73,7 +73,6 @@ export async function POST(request) {
             category,
             date: Date.now(),
         })
-        console.log(quantity);
 
         return NextResponse.json({ success: true, message: "Product added successfully", newProduct });
 

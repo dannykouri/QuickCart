@@ -5,19 +5,19 @@ import Image from "next/image";
 const products = [
   {
     id: 1,
-    image: assets.girl_with_headphone_image,
-    title: "Unparalleled Sound",
-    description: "Experience crystal-clear audio with premium headphones.",
+    image: assets.bo_tu_hoc_eng_image,
+    title: "Bộ sách luyện thi IELTS Mike 5 cuốn",
+    description: "Bộ sách từ kinh nghiệm 20 năm chấm thi IELTS.",
   },
   {
     id: 2,
-    image: assets.girl_with_earphone_image,
-    title: "Stay Connected",
-    description: "Compact and stylish earphones for every occasion.",
+    image: assets.hsk_book_chinese_image,
+    title: "Bộ sách HSK 1-6",
+    description: "Bộ sách giúp bạn nắm vững ngữ pháp và từ vựng Tiếng Trung.",
   },
   {
     id: 3,
-    image: assets.boy_with_laptop_image,
+    image: assets.ls_book_sp_image,
     title: "Power in Every Pixel",
     description: "Shop the latest laptops for work, gaming, and more.",
   },
@@ -40,8 +40,8 @@ const FeaturedProduct = () => {
               className="group-hover:brightness-75 transition duration-300 w-full h-auto object-cover"
             />
             <div className="group-hover:-translate-y-4 transition duration-300 absolute bottom-8 left-8 text-white space-y-2">
-              <p className="font-medium text-xl lg:text-2xl">{title}</p>
-              <p className="text-sm lg:text-base leading-5 max-w-60">
+              <p className="font-medium text-xl lg:text-2xl text-sky-800">{title}</p>
+              <p className="text-sm lg:text-base leading-5 max-w-60 text-gray-400">
                 {description}
               </p>
               <button className="flex items-center gap-1.5 bg-cyan-600 px-4 py-2 rounded">

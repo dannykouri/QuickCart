@@ -41,21 +41,20 @@ const Navbar = () => {
             <NavigationMenuItem>
               <NavigationMenuTrigger>Danh Mục</NavigationMenuTrigger>
               <NavigationMenuContent >
-                <Link href="/all-products/english-books">
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>Sách Tiếng Anh</NavigationMenuLink>
-                </Link>
-                <Link href="/all-products/chinese-books">
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>Sách Tiếng Trung</NavigationMenuLink>
-                </Link>
-                <Link href="/all-products/spanish-books">
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>Sách Tiếng Tây Ban Nha</NavigationMenuLink>
-                </Link>
-                <Link href="/all-products/german-books">
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>Sách Tiếng Đức</NavigationMenuLink>
-                </Link>
-                <Link href="/all-products/russian-books">
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>Sách Tiếng Nga</NavigationMenuLink>
-                </Link>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}><Link href="/all-products/english-books">Sách Tiếng Anh</Link></NavigationMenuLink>
+                
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <Link href="/all-products/chinese-books">Sách Tiếng Trung</Link>
+                </NavigationMenuLink>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <Link href="/all-products/spanish-books">Sách Tiếng Tây Ban Nha</Link>
+                </NavigationMenuLink>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <Link href="/all-products/german-books">Sách Tiếng Đức</Link>
+                </NavigationMenuLink>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <Link href="/all-products/russian-books">Sách Tiếng Nga</Link>
+                </NavigationMenuLink>
               </NavigationMenuContent>
             </NavigationMenuItem>
           </NavigationMenuList>
