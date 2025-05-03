@@ -21,6 +21,7 @@ import star_icon from "./star_icon.svg";
 import redirect_icon from "./redirect_icon.svg";
 import star_dull_icon from "./star_dull_icon.svg";
 import checkmark from "./checkmark.png";
+import upload_area from "./upload_area.png";
 import C1_C2_book_eng_image from "./C1_C2_book_eng_image.png";
 import bo_tu_hoc_eng_image from "./bo_tu_hoc_eng_image.png";
 import hsk_book_chinese_image from "./hsk_book_chinese_image.png";
@@ -29,6 +30,7 @@ import Gtrinh_HanNgu_book_chinese_image from "./gtrinh_hanngu_book_chinese_image
 import b2_book_eng_image from "./b2_book_eng_image.png";
 import bo_vstep_book_eng_image from "./bo_vstep_book_eng_image.png";
 import bo_schritteplus_book_ger_image from "./bo_schritteplus_book_ger_image.png";
+import settings_slider from "./settings-sliders.png";
 
 
 export const assets = {
@@ -55,6 +57,7 @@ export const assets = {
   redirect_icon,
   star_dull_icon,
   checkmark,
+  upload_area,
   b2_book_eng_image,
   C1_C2_book_eng_image,
   bo_tu_hoc_eng_image,
@@ -62,7 +65,8 @@ export const assets = {
   ls_book_sp_image,
   Gtrinh_HanNgu_book_chinese_image,
   bo_vstep_book_eng_image,
-  bo_schritteplus_book_ger_image
+  bo_schritteplus_book_ger_image,
+  settings_slider
 };
 
 export const BagIcon = () => {
