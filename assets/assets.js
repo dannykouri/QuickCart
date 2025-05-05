@@ -21,11 +21,7 @@ import star_icon from "./star_icon.svg";
 import redirect_icon from "./redirect_icon.svg";
 import star_dull_icon from "./star_dull_icon.svg";
 import checkmark from "./checkmark.png";
-import product_details_page_apple_earphone_image1 from "./product_details_page_apple_earphone_image1.png";
-import product_details_page_apple_earphone_image2 from "./product_details_page_apple_earphone_image2.png";
-import product_details_page_apple_earphone_image3 from "./product_details_page_apple_earphone_image3.png";
-import product_details_page_apple_earphone_image4 from "./product_details_page_apple_earphone_image4.png";
-import product_details_page_apple_earphone_image5 from "./product_details_page_apple_earphone_image5.png";
+import upload_area from "./upload_area.png";
 import C1_C2_book_eng_image from "./C1_C2_book_eng_image.png";
 import bo_tu_hoc_eng_image from "./bo_tu_hoc_eng_image.png";
 import hsk_book_chinese_image from "./hsk_book_chinese_image.png";
@@ -60,32 +56,8 @@ export const assets = {
   star_icon,
   redirect_icon,
   star_dull_icon,
-  header_headphone_image,
-  header_playstation_image,
-  header_macbook_image,
-  macbook_image,
-  bose_headphone_image,
-  apple_earphone_image,
-  samsung_s23phone_image,
-  venu_watch_image,
-  upload_area,
-  cannon_camera_image,
-  sony_airbuds_image,
-  asus_laptop_image,
-  projector_image,
-  playstation_image,
-  girl_with_headphone_image,
-  girl_with_earphone_image,
-  md_controller_image,
-  sm_controller_image,
-  jbl_soundbox_image,
-  boy_with_laptop_image,
-  product_details_page_apple_earphone_image1,
-  product_details_page_apple_earphone_image2,
-  product_details_page_apple_earphone_image3,
-  product_details_page_apple_earphone_image4,
-  product_details_page_apple_earphone_image5,
   checkmark,
+  upload_area,
   b2_book_eng_image,
   C1_C2_book_eng_image,
   bo_tu_hoc_eng_image,

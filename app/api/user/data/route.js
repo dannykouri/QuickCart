@@ -6,7 +6,7 @@ import connectDB from "@/config/db";
 export async function GET(request) {
   try {
     await connectDB();
-    const { userId } = getAuth(request);
+    const { userId } = getAuth(request);  
     const user = await User.findById(userId)
     if (!user) {
       return NextResponse.json({ success: false,message: "User not found" });

@@ -67,6 +67,10 @@ const HeaderSliderList = () => {
     router.push(`/seller/header-slider/edit-header-slider/${id}`);
   };
 
+  const handleAdd = () => {
+    router.push(`/seller/header-slider/add-slider`);
+  };
+
   return (
     <div className="flex-1 min-h-screen flex flex-col justify-between">
       {loading ? (
@@ -101,7 +105,7 @@ const HeaderSliderList = () => {
                         </td>
                         <td className="px-6 py-4 font-medium">{item.title}</td>
                         <td className="px-6 py-4 hidden md:table-cell">
-                          {item.description || '-'}
+                          {item.offer || '-'}
                         </td>
                         <td className="px-6 py-4 space-x-2">
                           {/* Các nút thao tác */}
@@ -113,10 +117,26 @@ const HeaderSliderList = () => {
                       <td colSpan={4} className="px-6 py-4 text-center">
                         Không có slider nào
                       </td>
+                      <td>
+                        <button
+                          className="bg-blue-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded"
+                          onClick={handleAdd}
+                        >
+                          Thêm
+                        </button>
+                      </td>
                     </tr> 
                   )}
                 </tbody>
             </table>
+          </div>
+          <div className="mt-4">
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              onClick={handleAdd}
+            >
+              Thêm
+            </button>
           </div>
         </div>
       )}
