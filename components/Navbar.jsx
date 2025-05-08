@@ -69,12 +69,19 @@ const Navbar = () => {
         { user 
           ? 
           <>
-          <UserButton>
+          <UserButton 
+             appearance={{
+              elements: {
+                userButtonPopoverActionButton__manageAccount: 'Quản lý tài khoản',
+                userButtonPopoverActionButton__signOut: 'Đăng xuất',
+              },
+            }}
+          >
             <UserButton.MenuItems>
-              <UserButton.Action label="Cart" labelIcon={<CartIcon />} onClick={()=> router.push('/cart')} />
+              <UserButton.Action label="Giỏ Hàng" labelIcon={<CartIcon />} onClick={()=> router.push('/cart')} />
             </UserButton.MenuItems>
             <UserButton.MenuItems>
-              <UserButton.Action label="My Orders" labelIcon={<BagIcon />} onClick={()=> router.push('/my-orders')} />
+              <UserButton.Action label="Đơn Hàng" labelIcon={<BagIcon />} onClick={()=> router.push('/my-orders')} />
             </UserButton.MenuItems>
           </UserButton>
           </> : <button onClick={openSignIn} className="flex items-center gap-2 hover:text-gray-900 transition">
@@ -87,12 +94,12 @@ const Navbar = () => {
         { user 
           ? 
           <>
-          <UserButton>
+          <UserButton >
             <UserButton.MenuItems>
               <UserButton.Action label="Trang Chủ" labelIcon={<HomeIcon/>} onClick={()=> router.push('/')} />
             </UserButton.MenuItems>
             <UserButton.MenuItems>
-              <UserButton.Action label="Sản Phẩm" labelIcon={<BoxIcon/>} onClick={()=> router.push('/all-products')} />
+              <UserButton.Action label="Tất Cả Sách" labelIcon={<BoxIcon/>} onClick={()=> router.push('/all-products')} />
             </UserButton.MenuItems>
             <UserButton.MenuItems>
               <UserButton.Action label="Giỏ Hàng" labelIcon={<CartIcon />} onClick={()=> router.push('/cart')} />
