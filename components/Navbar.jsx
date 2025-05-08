@@ -69,14 +69,7 @@ const Navbar = () => {
         { user 
           ? 
           <>
-          <UserButton 
-             appearance={{
-              elements: {
-                userButtonPopoverActionButton__manageAccount: 'Quản lý tài khoản',
-                userButtonPopoverActionButton__signOut: 'Đăng xuất',
-              },
-            }}
-          >
+          <UserButton>
             <UserButton.MenuItems>
               <UserButton.Action label="Giỏ Hàng" labelIcon={<CartIcon />} onClick={()=> router.push('/cart')} />
             </UserButton.MenuItems>
