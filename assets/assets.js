@@ -30,7 +30,6 @@ import Gtrinh_HanNgu_book_chinese_image from "./gtrinh_hanngu_book_chinese_image
 import b2_book_eng_image from "./b2_book_eng_image.png";
 import bo_vstep_book_eng_image from "./bo_vstep_book_eng_image.png";
 import bo_schritteplus_book_ger_image from "./bo_schritteplus_book_ger_image.png";
-import settings_slider from "./settings-sliders.png";
 
 
 export const assets = {
@@ -66,7 +65,6 @@ export const assets = {
   Gtrinh_HanNgu_book_chinese_image,
   bo_vstep_book_eng_image,
   bo_schritteplus_book_ger_image,
-  settings_slider
 };
 
 export const BagIcon = () => {

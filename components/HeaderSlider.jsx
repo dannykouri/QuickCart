@@ -4,32 +4,33 @@ import Image from "next/image";
 import axios from "axios";
 
 const HeaderSlider = () => {
-  const [sliderData, setSliderData] = useState([]);
+  const sliderData = [
+    {
+      id: 1,
+      title: "Giáo Trình Tiếng Trung Cho Trẻ Em",
+      offer: "Giảm giá 30% chỉ trong tháng này",
+      buttonText1: "Mua Ngay",
+      buttonText2: "Xem Thêm",
+      imgSrc: assets.Gtrinh_HanNgu_book_chinese_image,
+    },
+    {
+      id: 2,
+      title: "Bộ Sách Tiếng Anh Vstep",
+      offer: "Giảm giá 20% chỉ trong tháng này",
+      buttonText1: "Mua Ngay",
+      buttonText2: "Xem Thêm Sản Phẩm Khác",
+      imgSrc: assets.bo_vstep_book_eng_image,
+    },
+    {
+      id: 3,
+      title: "Bộ Sách Tiếng Đức",
+      offer: "Giảm 40% ngay hôm nay",
+      buttonText1: "Mua Ngay",
+      buttonText2: "Xem Nhiều Thêm",
+      imgSrc: assets.bo_schritteplus_book_ger_image,
+    },
+  ];
 
-   useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const res = await axios.get("/api/header-slider/list");
-          const data = res.data;
-    
-          // Nếu data là object có field "data"
-          if (Array.isArray(data)) {
-            setSliderData(data); // array rồi
-          } else if (Array.isArray(data.data)) {
-            setSliderData(data.data); // nested array
-          } else {
-            console.error("Dữ liệu trả về không phải là array:", data);
-            setSliderData([]); // fallback tránh crash
-          }
-        } catch (error) {
-          console.error("Lỗi khi lấy slider:", error);
-          setSliderData([]); // fallback tránh crash
-        }
-      };
-    
-      fetchData();
-    }, []);
-    
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
