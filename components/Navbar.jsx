@@ -100,6 +100,7 @@ const Navbar = () => {
             </UserButton.MenuItems>
             <UserButton.MenuItems>
               <UserButton.Action label="Tất Cả Sách" labelIcon={<BoxIcon/>} onClick={()=> router.push('/all-products')} />
+              <UserButton.Action label="Sản Phẩm" labelIcon={<BoxIcon/>} onClick={()=> router.push('/all-products')} />f2bb72d (ngày 8/5/2025)
             </UserButton.MenuItems>
             <UserButton.MenuItems>
               <UserButton.Action label="Giỏ Hàng" labelIcon={<CartIcon />} onClick={()=> router.push('/cart')} />
